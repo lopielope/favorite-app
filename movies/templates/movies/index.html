@@ -1,0 +1,23 @@
+{% extends 'movies/_base.html' %}
+
+<html>
+    <body>
+        <div>
+            <a href="{% url 'home' %}">Favorte Things</a>
+            <a href="{% url 'about' %}">About</a>
+        </div>
+        {% block content %}
+        <h1>My Favorite Things to Do:</h1>
+        {% if things %}
+            <ul>
+                {% for thing in things %}
+                    <li>{{ thing|title }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No favorite Movies...</p>
+        {% endif %}
+
+        {% endblock %}
+    </body>
+</html>
